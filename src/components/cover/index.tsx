@@ -5,10 +5,11 @@ import { actionCreators } from '../../store/'
 interface ICoverProps extends PropsFromRedux {}
 
 const Cover: FC<ICoverProps> = (props) => {
+  const { unseal } = props
   const [ timer, setTimer ] = useState<NodeJS.Timeout>()  
   const onSealTouchStart = () => {
     setTimer(setTimeout(() => {
-      console.log('long touch!!')
+      unseal()
     }, 1000))
   }
   const onSealTouchEnd = () => {
