@@ -23,9 +23,6 @@ const Cover: FC<ICoverProps> = (props) => {
         onTouchStart={onSealTouchStart}
         onTouchEnd={onSealTouchEnd}
       >长按的一个按钮</button>
-      <div style={{color: 'red'}}>
-        红色
-      </div>
     </div>
   )
 }

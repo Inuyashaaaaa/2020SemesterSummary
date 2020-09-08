@@ -10,7 +10,7 @@
 
 .cover-enter-active {
   opacity: 1;
-  transition: opacity 3000ms ease-in;
+  transition: opacity 500ms ease-in;
 }
 
 .cover-enter-done {
@@ -23,7 +23,7 @@
 
 .cover-exit-active {
   opacity: 0;
-  transition: opacity 3000ms ease-in;
+  transition: opacity 500ms ease-in;
 }
 
 .cover-exit-done {

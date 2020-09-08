@@ -1,11 +1,11 @@
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useRef } from 'react';
 import './App.css';
 import Cover from './components/cover'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper.scss'
 import { connect, ConnectedProps } from 'react-redux'
 import { actionCreators } from './store'
-import { CSSTransition } from 'react-transition-group'
+import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import './App.css'
 
 interface IAppProps extends PropsFromRedux { }
@@ -23,41 +23,45 @@ const App: FC<IAppProps> = (props) => {
         clearTimeout(timer.current)
     }
   }
+  const renderComponent = () => {
+    switch (page) {
+      case 0:
+        return <Cover />
+      case 1:
+        return (
+          <div>
+            <Swiper
+              onSlideChange={(swiper) => onJoinGame(swiper.activeIndex)}
+            >
+              <SwiperSlide>
+                <div style={{ background: 'red', height: '100vh' }}>轮播图</div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div style={{ background: 'blue', height: '100vh' }}>2324</div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div style={{ background: 'green', height: '100vh' }}>12</div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
+        )
+      case 2:
+        return <div>游戏界面</div>
+      default:
+        break;
+    }
+  }
   return (
     <div className="App">
-      <CSSTransition
-        in={page === 0}
-        classNames="cover"
-        timeout={3000}
-      >
-        <Cover />
-      </CSSTransition>
-      <CSSTransition
-        in={page === 1}
-        classNames="cover"
-        timeout={3000}
-      >
-        <Swiper
-          onSlideChange={(swiper) => onJoinGame(swiper.activeIndex)}
+      <SwitchTransition>
+        <CSSTransition
+          key={page}
+          classNames="cover"
+          timeout={500}
         >
-          <SwiperSlide>
-            <div style={{ background: 'red' }}>轮播图</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div style={{ background: 'blue' }}>2324</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div style={{ background: 'green' }}>12</div>
-          </SwiperSlide>
-        </Swiper>
-      </CSSTransition>
-      <CSSTransition
-        in={page === 2}
-        classNames="cover"
-        timeout={3000}
-      >
-        <div>游戏界面</div>
-      </CSSTransition>
+          {renderComponent()}
+        </CSSTransition>
+      </SwitchTransition>
     </div>
   );
 }

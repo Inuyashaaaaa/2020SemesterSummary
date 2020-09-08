@@ -1,16 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { store } from './store'
 import { Provider } from 'react-redux'
+import Loadable from 'react-loadable'
 import 'normalize.css'
+import Loading from './components/loading'
+
+const LoadableApp = Loadable({
+  loader: () => import('./App'),
+  loading: Loading
+})
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <LoadableApp />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
