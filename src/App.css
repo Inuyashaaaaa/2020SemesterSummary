@@ -1,3 +1,32 @@
 .App {
   text-align: center;
+  position: relative;
+}
+
+.cover-enter {
+  opacity: 0;
+  display: block;
+}
+
+.cover-enter-active {
+  opacity: 1;
+  transition: opacity 3000ms ease-in;
+}
+
+.cover-enter-done {
+  opacity: 1;
+}
+
+.cover-exit {
+  opacity: 1;
+}
+
+.cover-exit-active {
+  opacity: 0;
+  transition: opacity 3000ms ease-in;
+}
+
+.cover-exit-done {
+  opacity: 0;
+  display: none;
 }
