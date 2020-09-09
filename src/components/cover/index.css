@@ -1,6 +1,128 @@
 .cover_container {
   height: 100vh;
   width: 100%;
-  background-color: black;
   position: absolute;
+  background-image: url('./images/background.png');
+  overflow: hidden;
+}
+
+.star_group_1 {
+  background-image: url('./images/star-1.png');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  transform: scale(1.8);
+  transform-origin: center 30%;
+  position: absolute;
+  animation: star-group-ani 4s infinite ease;
+}
+
+.star_group_2 {
+  background-image: url('./images/star-2.png');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  transform: scale(1.8);
+  transform-origin: center 30%;
+  position: absolute;
+  animation: star-group-ani 5s infinite ease;
+  animation-delay: 1.5s;
+}
+
+.star_group_3 {
+  background-image: url('./images/star-3.png');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  transform: scale(1.8);
+  transform-origin: center 30%;
+  position: absolute;
+  animation: star-group-ani 3s infinite ease;
+  animation-delay: 3s;
+}
+
+.star {
+  display: block;
+  width: 1vw;
+  height: 1vw;
+  border-radius: 50%;
+  background: #FFF;
+  top: 5vh;
+  left: 30vw;
+  position: relative;
+  animation: star-ani 6s infinite linear;
+  box-shadow: 0 0 1vw 1vw rgba(255, 255, 255, .3);
+  opacity: 1;
+}
+
+.star:nth-child(1) {
+  position: absolute;
+  left: 60vw;
+  top: 5vh;
+}
+
+.star:nth-child(2) {
+  position: absolute;
+  left: 70vw;
+  top: 20vh;
+  animation-delay: 1s;
+}
+
+.star:nth-child(3) {
+  position: absolute;
+  left: 80vw;
+  top: 10vh;
+  animation-delay: 1.3s;
+}
+
+.star:after {
+  content: '';
+  display: block;
+  top: 0px;
+  left: 40%;
+  border: 0px solid #fff;
+  border-width: 0px 20vw 0.2vw 20vw;
+  border-color: transparent transparent transparent rgba(255, 255, 255, .3);
+  transform: rotate(-45deg) translate3d(1px, 3px, 0);
+  box-shadow: 0 0 1px 0 rgba(255, 255, 255, .1);
+  transform-origin: left;
+}
+
+.seal_bar {
+  position: absolute;
+  background-color: #f0ae52;
+  width: 100%;
+  height: 3vh;
+  padding: 2vh 0;
+  text-align: center;
+  color: white;
+  bottom: 16vh;
+  font-size: 3vh;
+}
+
+@keyframes star-ani {
+  0% {
+      opacity: 0;
+      transform: scale(0) rotate(0) translate3d(0, 0, 0);
+  }
+  50% {
+      opacity: 1;
+      transform: scale(1) rotate(0) translate3d(-20vw, 20vw, 0);
+  }
+  100% {
+      opacity: 0;
+      transform: scale(1) rotate(0) translate3d(-40vw, 40vw, 0);
+  }
+}
+
+@keyframes star-group-ani {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
 }

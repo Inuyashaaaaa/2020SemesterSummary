@@ -62,6 +62,8 @@ const App: FC<IAppProps> = (props) => {
           {renderComponent()}
         </CSSTransition>
       </SwitchTransition>
+      <div className="return_container"></div>
+      <div className="music_container"></div>
     </div>
   );
 }

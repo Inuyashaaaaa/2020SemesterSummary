@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: Semester Summary;
+  src: url("./font.TTF");
+}
+
+* {
+  font-family: Semester Summary;
+}

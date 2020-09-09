@@ -3,7 +3,7 @@ import { connect, ConnectedProps } from 'react-redux'
 import { actionCreators } from '../../store/'
 import './index.css'
 
-interface ICoverProps extends PropsFromRedux {}
+interface ICoverProps extends PropsFromRedux { }
 
 const Cover: FC<ICoverProps> = (props) => {
   const { unseal } = props
@@ -19,10 +19,21 @@ const Cover: FC<ICoverProps> = (props) => {
   }
   return (
     <div className="cover_container">
-      <button
+      {/* <div className="star_group_1"></div> */}
+      <div className="star_group_2"></div>
+      {/* <div className="star_group_3"></div> */}
+      <div className="star-animate-wrapper">
+        <div className="star"></div>
+        <div className="star"></div>
+        <div className="star"></div>
+      </div>
+      <div
+        className="seal_bar"
         onTouchStart={onSealTouchStart}
         onTouchEnd={onSealTouchEnd}
-      >长按的一个按钮</button>
+      >
+        启&nbsp;封
+      </div>
     </div>
   )
 }

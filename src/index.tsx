@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import Loadable from 'react-loadable'
 import 'normalize.css'
 import Loading from './components/loading'
+import './assets/font/font.css'
 
 const LoadableApp = Loadable({
   loader: () => import('./App'),
