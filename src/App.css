@@ -10,7 +10,7 @@
 
 .cover-enter-active {
   opacity: 1;
-  transition: opacity 500ms ease-in;
+  transition: opacity 200ms ease-in;
 }
 
 .cover-enter-done {
@@ -23,7 +23,7 @@
 
 .cover-exit-active {
   opacity: 0;
-  transition: opacity 500ms ease-in;
+  transition: opacity 200ms ease-in;
 }
 
 .cover-exit-done {
@@ -33,20 +33,22 @@
 
 .return_container {
   background-image: url('./assets/images/return.png');
-  background-size: cover;
+  background-size: contain;
   position: absolute;
+  background-repeat: no-repeat;
   left: 5%;
-  top: 5vh;
-  width: 4.5vh;
-  height: 4.5vh;
+  top: 6vh;
+  width: 9vw;
+  height: 9vw;
 }
 
 .music_container {
   background-image: url('./assets/images/music.png');
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
   position: absolute;
   right: 5%;
-  top: 5vh;
-  width: 4.5vh;
-  height: 4.5vh;
+  top: 6vh;
+  width: 9vw;
+  height: 9vw;
 }

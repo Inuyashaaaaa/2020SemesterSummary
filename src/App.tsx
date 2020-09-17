@@ -57,7 +57,7 @@ const App: FC<IAppProps> = (props) => {
         <CSSTransition
           key={page}
           classNames="cover"
-          timeout={500}
+          timeout={200}
         >
           {renderComponent()}
         </CSSTransition>

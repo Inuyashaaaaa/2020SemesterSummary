@@ -3,6 +3,7 @@
   width: 100%;
   position: absolute;
   background-image: url('./images/background.png');
+  background-size: cover;
   overflow: hidden;
 }
 
@@ -92,12 +93,103 @@
   position: absolute;
   background-color: #f0ae52;
   width: 100%;
-  height: 3vh;
+  height: 6vw;
   padding: 2vh 0;
   text-align: center;
   color: white;
   bottom: 16vh;
-  font-size: 3vh;
+  font-size: 6vw;
+  letter-spacing: 3vw;
+}
+
+.left_arrow_group {
+  position: absolute;
+  height: 6vw;
+  color: white;
+  bottom: 18vh;
+  left: 10vw;
+  font-size: 6vw;
+  letter-spacing: 3vw;
+}
+
+.right_arrow_group {
+  position: absolute;
+  height: 6vw;
+  color: white;
+  bottom: 18vh;
+  right: 10vw;
+  font-size: 6vw;
+  letter-spacing: 3vw;
+  animation: all 10s ease;
+}
+
+.left_arrow_group_animation {
+  animation: 2s left-arrow-ani ease; 
+}
+
+.right_arrow_group_animation {
+  animation: 2s right-arrow-ani ease;
+}
+
+.seal_bar_text {
+  animation: all 10s ease;
+}
+
+.seal_bar_animation {
+  display: block;
+  animation: 3s vanishOut infinite ease;
+}
+
+.space_man {
+  position: absolute;
+  top: 37vh;
+  left: 35vw;
+  width: 30vw;
+  height: 30vw;
+  background-image: url('./images/space-man.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: 4s space-man-ani infinite ease-out;
+}
+
+.helmet_light {
+  position: absolute;
+  top: 37vh;
+  left: 35vw;
+  width: 30vw;
+  height: 30vw;
+  background-image: url('./images/helmet-light.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: 4s helmet-light-ani infinite ease-out;
+}
+
+.planet {
+  position: absolute;
+  top: 45vh;
+  right: -8vw;
+  width: 20vw;
+  height: 20vw;
+  background-image: url('./images/planet.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.cover_text {
+  position: absolute;
+  text-align: left;
+  color: white;
+  left: 8vw;
+  top: 21.8vh;
+  font-size: 5.5vw;
+}
+
+.statement_text {
+  color: rgb(177, 177, 177);
+  width: 100vw;
+  position: absolute;
+  bottom: 4.4vh;
+  font-size: 2vw;
 }
 
 @keyframes star-ani {
@@ -125,4 +217,68 @@
   100% {
     opacity: 0.3;
   }
+}
+
+@keyframes space-man-ani {
+  0% {
+    transform: translateY(-1vh);
+  }
+  50% {
+    transform: translateY(1vh);
+  }
+  100% {
+    transform: translateY(-1vh);
+  }
+}
+
+@keyframes helmet-light-ani {
+  0% {
+    transform: translateY(-1vh);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(1vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-1vh);
+    opacity: 0.3;
+  }
+}
+
+@keyframes vanishOut {
+  0% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform: scale(1, 1);
+    filter: blur(0px); 
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 50% 50%;
+    transform: scale(2, 2);
+    filter: blur(20px); 
+  } 
+}
+
+@keyframes left-arrow-ani {
+  0% {
+    opacity: 1;
+    transform: translateX(0); 
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100vw); 
+  } 
+}
+
+@keyframes right-arrow-ani {
+  0% {
+    opacity: 1;
+    transform: translateX(0); 
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100vw); 
+  } 
 }
