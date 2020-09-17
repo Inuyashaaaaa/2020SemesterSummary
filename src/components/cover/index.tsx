@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState, useEffect } from 'react'
+import React, { FC, useRef, useState } from 'react'
 import { connect, ConnectedProps } from 'react-redux'
 import { actionCreators } from '../../store/'
 import classNames from 'classnames'
@@ -8,12 +8,14 @@ interface ICoverProps extends PropsFromRedux { }
 
 const Cover: FC<ICoverProps> = (props) => {
   const { unseal } = props
-  const [ isAnimation, setIsAnimation ] = useState<boolean>(false)
+  const [isAnimation, setIsAnimation] = useState<boolean>(false)
   const timer = useRef<NodeJS.Timeout>()
-  
+
   const onSealTouchStart = () => {
     setIsAnimation(true)
     timer.current = setTimeout(() => {
+      if (window.navigator.vibrate)
+        window.navigator.vibrate(100)
       unseal()
     }, 500)
   }
@@ -31,8 +33,8 @@ const Cover: FC<ICoverProps> = (props) => {
   const rightArrowGroupClassName = classNames('right_arrow_group', {
     right_arrow_group_animation: isAnimation
   })
-  return (
-    <div className="cover_container">
+
+  return (<div className="cover_container">
       <div className="star_group_1"></div>
       <div className="star_group_2"></div>
       <div className="star_group_3"></div>
@@ -65,8 +67,7 @@ const Cover: FC<ICoverProps> = (props) => {
       <div className={rightArrowGroupClassName}>
         》》》
       </div>
-    </div>
-  )
+    </div>)
 }
 
 const mapDispatchToProps = (dispatch: any) => ({

@@ -4,3 +4,16 @@ export const changePage = (page: number) => ({
   type: CHANGE_PAGE,
   page
 })
+
+export const getData = () => {
+  return async () => {
+    const timeout = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve()
+        }, 10000);
+      })
+    }
+    await timeout()
+  }
+}

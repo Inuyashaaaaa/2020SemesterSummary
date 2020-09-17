@@ -2,17 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import { store } from './store'
+import { store, actionCreators } from './store'
 import { Provider } from 'react-redux'
 import Loadable from 'react-loadable'
 import 'normalize.css'
 import Loading from './components/loading'
 import './assets/font/font.css'
 
-const LoadableApp = Loadable({
-  loader: () => import('./App'),
+const LoadableApp = Loadable.Map({
+  loader: {
+    App: () => import('./App'),
+    Data: actionCreators.getData()
+  },
+  render(loaded) {
+    let App = loaded.App.default;
+    return <App />;
+  },
   loading: Loading
-})
+});
 
 ReactDOM.render(
   <React.StrictMode>
