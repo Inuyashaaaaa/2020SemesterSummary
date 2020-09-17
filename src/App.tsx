@@ -1,18 +1,20 @@
-import React, { FC, useRef } from 'react';
-import './App.css';
+import React, { FC, useRef } from 'react'
 import Cover from './components/cover'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import './App.css'
 import 'swiper/swiper.scss'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import { connect, ConnectedProps } from 'react-redux'
 import { actionCreators } from './store'
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
-import './App.css'
 
-interface IAppProps extends PropsFromRedux { }
+const music = require('./assets/music/music.mp3')
+
+interface IAppProps extends PropsFromRedux {}
 
 const App: FC<IAppProps> = (props) => {
   const { page, joinGame } = props
   const timer = useRef<NodeJS.Timeout>()
+  const audio = useRef<HTMLAudioElement | null>(null)
   const onJoinGame = (activeIndex: number) => {
     if (activeIndex === 2) {
       timer.current = setTimeout(() => {
@@ -21,6 +23,14 @@ const App: FC<IAppProps> = (props) => {
     } else {
       if (timer.current)
         clearTimeout(timer.current)
+    }
+  }
+  const playMusic = () => {
+    if (audio.current) {
+      if (audio.current.paused)
+        audio.current.play()
+      else
+        audio.current.pause()
     }
   }
   const renderComponent = () => {
@@ -63,9 +73,10 @@ const App: FC<IAppProps> = (props) => {
         </CSSTransition>
       </SwitchTransition>
       <div className="return_container"></div>
-      <div className="music_container"></div>
+      <div className="music_container" onClick={() => playMusic()}></div>
+      <audio ref={audio} src={music}/>
     </div>
-  );
+  )
 }
 
 const mapStateToProps = (state: any) => ({

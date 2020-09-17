@@ -15,7 +15,7 @@ const LoadableApp = Loadable.Map({
     Data: actionCreators.getData()
   },
   render(loaded) {
-    let App = loaded.App.default;
+    const App = loaded.App.default;
     return <App />;
   },
   loading: Loading
