@@ -1,5 +1,7 @@
 import React, { FC, useRef } from 'react'
-import Cover from './components/cover'
+import Cover from './pages/cover'
+import Date from './pages/date'
+import Avatar from './pages/avatar'
 import './App.css'
 import 'swiper/swiper.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -36,7 +38,7 @@ const App: FC<IAppProps> = (props) => {
   const renderComponent = () => {
     switch (page) {
       case 0:
-        return <Cover />
+        return <Avatar />
       case 1:
         return (
           <div>
@@ -44,7 +46,7 @@ const App: FC<IAppProps> = (props) => {
               onSlideChange={(swiper) => onJoinGame(swiper.activeIndex)}
             >
               <SwiperSlide>
-                <div style={{ background: 'red', height: '100vh' }}>轮播图</div>
+                <Date />
               </SwiperSlide>
               <SwiperSlide>
                 <div style={{ background: 'blue', height: '100vh' }}>2324</div>

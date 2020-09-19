@@ -1,0 +1,134 @@
+.date_container {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  background-image: url('./images/background.png');
+  background-size: cover;
+  overflow: hidden;
+}
+
+.star_group_1 {
+  background-image: url('./images/star-1.png');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  transform: scale(1.8);
+  transform-origin: center 30%;
+  position: absolute;
+  animation: star-group-ani 4s infinite ease;
+}
+
+.star_group_2 {
+  background-image: url('./images/star-2.png');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  transform: scale(1.8);
+  transform-origin: center 30%;
+  position: absolute;
+  animation: star-group-ani 5s infinite ease;
+  animation-delay: 1.5s;
+}
+
+.star_group_3 {
+  background-image: url('./images/star-3.png');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  transform: scale(1.8);
+  transform-origin: center 30%;
+  position: absolute;
+  animation: star-group-ani 3s infinite ease;
+  animation-delay: 3s;
+}
+
+.planet {
+  position: absolute;
+  top: 17vh;
+  left: -5vw;
+  width: 16vw;
+  height: 16vw;
+  background-image: url('./images/planet.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.dirigible {
+  position: absolute;
+  bottom: 0vh;
+  left: 15vw;
+  width: 100vw;
+  height: 100vw;
+  background-image: url('./images/dirigible.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 0% 100%;
+  animation: dirigible-ani 3s infinite ease;
+}
+
+.smoke {
+  position: absolute;
+  bottom: -2vh;
+  left: -35vw;
+  width: 150vw;
+  height: 150vw;
+  background-image: url('./images/smoke.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center 100%;
+  animation: smoke-ani 3s infinite ease;
+}
+
+.date_text {
+  position: absolute;
+  color: white;
+  text-align: right;
+  font-size: 2.2vh;
+  line-height: 4vh;
+  top: 18vh;
+  right: 12vw;
+}
+
+
+.stress_text {
+  color: #f1b35e;
+  font-size: 3.3vh;
+  padding: 0 1vw;
+}
+
+
+
+@keyframes star-group-ani {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes dirigible-ani {
+  0% {
+    transform: translateY(2vh);
+  }
+  50% {
+    transform: translateY(0vh);
+  }
+  100% {
+    transform: translateY(2vh);
+  }
+}
+
+@keyframes smoke-ani {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

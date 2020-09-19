@@ -1,0 +1,72 @@
+.avatar_container {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background-image: url('./images/background.png');
+  background-size: 175%;
+  background-position: center center;
+  overflow: hidden;
+}
+
+.star_group_1 {
+  background-image: url('./images/star-1.png');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  transform: scale(1.8);
+  transform-origin: center 30%;
+  position: absolute;
+  animation: star-group-ani 4s infinite ease;
+}
+
+.star_group_2 {
+  background-image: url('./images/star-2.png');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  transform: scale(1.8);
+  transform-origin: center 30%;
+  position: absolute;
+  animation: star-group-ani 5s infinite ease;
+  animation-delay: 1.5s;
+}
+
+.astronaut {
+  position: absolute;
+  top: 15vh;
+  left: calc((100vw - 42vh) / 2);
+  width: 44vh;
+  height: 44vh;
+  background-image: url('./images/astronaut.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.avatar_text {
+  position: absolute;
+  color: white;
+  text-align: right;
+  font-size: 2.1vh;
+  line-height: 4.8vh;
+  bottom: 29vh;
+  right: 12vw;
+}
+
+
+.stress_text {
+  color: #f1b35e;
+  font-size: 3.3vh;
+  padding: 0 1vw;
+}
+
+@keyframes star-group-ani {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}

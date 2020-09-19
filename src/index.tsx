@@ -6,8 +6,9 @@ import { store, actionCreators } from './store'
 import { Provider } from 'react-redux'
 import Loadable from 'react-loadable'
 import 'normalize.css'
-import Loading from './components/loading'
-import './assets/font/font.css'
+import Loading from './pages/loading'
+import './assets/font/title.css'
+import './assets/font/content.css'
 
 const LoadableApp = Loadable.Map({
   loader: {
