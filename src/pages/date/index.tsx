@@ -36,4 +36,4 @@ const connector = connect(null, mapDispatchToProps)
 
 type PropsFromRedux = ConnectedProps<typeof connector>
 
-export default Date
+export default connector(Date)

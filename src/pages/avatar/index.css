@@ -8,6 +8,7 @@
   overflow: hidden;
 }
 
+
 .star_group_1 {
   background-image: url('./images/star-1.png');
   width: 100%;
@@ -51,6 +52,12 @@
   bottom: 29vh;
   right: 12vw;
 }
+
+.avatar_chart_container {
+  position: absolute;
+  bottom: 0vh;  
+}
+
 
 
 .stress_text {

@@ -2,23 +2,26 @@ import React, { FC, useRef } from 'react'
 import Cover from './pages/cover'
 import Date from './pages/date'
 import Avatar from './pages/avatar'
+import Course from './pages/course'
 import './App.css'
 import 'swiper/swiper.scss'
+import  SwiperCore, { EffectFade } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { connect, ConnectedProps } from 'react-redux'
 import { actionCreators } from './store'
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
+SwiperCore.use([EffectFade])
 
 const music = require('./assets/music/music.mp3')
 
-interface IAppProps extends PropsFromRedux {}
+interface IAppProps extends PropsFromRedux { }
 
 const App: FC<IAppProps> = (props) => {
   const { page, joinGame } = props
   const timer = useRef<NodeJS.Timeout>()
   const audio = useRef<HTMLAudioElement | null>(null)
   const onJoinGame = (activeIndex: number) => {
-    if (activeIndex === 2) {
+    if (activeIndex === 3) {
       timer.current = setTimeout(() => {
         joinGame()
       }, 3000);
@@ -38,22 +41,29 @@ const App: FC<IAppProps> = (props) => {
   const renderComponent = () => {
     switch (page) {
       case 0:
-        return <Avatar />
+        return <Cover />
       case 1:
         return (
           <div>
             <Swiper
               onSlideChange={(swiper) => onJoinGame(swiper.activeIndex)}
+              effect="fade"
+              direction="vertical"
             >
               <SwiperSlide>
-                <Date />
+                <div style={{height: '100vh'}}>
+                  <Date />
+                </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div style={{ background: 'blue', height: '100vh' }}>2324</div>
+                <Avatar />
               </SwiperSlide>
               <SwiperSlide>
+                <Course />
+              </SwiperSlide>
+              {/* <SwiperSlide>
                 <div style={{ background: 'green', height: '100vh' }}>12</div>
-              </SwiperSlide>
+              </SwiperSlide> */}
             </Swiper>
           </div>
         )
@@ -76,7 +86,7 @@ const App: FC<IAppProps> = (props) => {
       </SwitchTransition>
       <div className="return_container"></div>
       <div className="music_container" onClick={() => playMusic()}></div>
-      <audio ref={audio} src={music}/>
+      <audio ref={audio} src={music} />
     </div>
   )
 }

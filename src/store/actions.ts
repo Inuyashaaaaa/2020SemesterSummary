@@ -11,7 +11,7 @@ export const getData = () => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve()
-        }, 1000);
+        }, 10);
       })
     }
     await timeout()

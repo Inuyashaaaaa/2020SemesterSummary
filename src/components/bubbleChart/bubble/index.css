@@ -1,0 +1,15 @@
+.avatar_canvas {
+  animation: canvas-ani 2s infinite ease-in-out;
+}
+
+@keyframes canvas-ani {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(1vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

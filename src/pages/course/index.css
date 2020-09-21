@@ -1,0 +1,173 @@
+.course_container {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background-image: url('./images/background.png');
+  background-size: 175%;
+  background-position: center center;
+  overflow: hidden;
+}
+
+.star_group_1 {
+  background-image: url('./images/star-1.png');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  transform: scale(1.8);
+  transform-origin: center 30%;
+  position: absolute;
+  animation: star-group-ani 4s infinite ease;
+}
+
+.star_group_2 {
+  background-image: url('./images/star-2.png');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  transform: scale(1.8);
+  transform-origin: center 30%;
+  position: absolute;
+  animation: star-group-ani 5s infinite ease;
+  animation-delay: 1.5s;
+}
+
+.map {
+  position: absolute;
+  top: 15vh;
+  left: -5vh;
+  width: 50vh;
+  height: 50vh;
+  background-image: url('./images/map.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.path_svg {
+  position: absolute;
+  top: 26.8vh;
+  left: -0.8vh;
+  width: 34.5vh;
+  height: 34.5vh;
+}
+
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+.swiper-slide-active .path {
+  animation-delay: 0.5s;
+  animation: dash-ani 1.0s linear forwards;
+}
+
+.course_planet {
+  position: absolute;
+  top: 24vh;
+  right: -2.5vh;
+  width: 12vh;
+  height: 12vh;
+  background-image: url('./images/planet.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: planet-ani 8s infinite ease;
+}
+
+.course_text {
+  position: absolute;
+  color: white;
+  text-align: right;
+  font-size: 2.1vh;
+  line-height: 4.8vh;
+  bottom: 7vh;
+  right: 12vw;
+}
+
+.flag_1 {
+  position: absolute;
+  top: 58vh;
+  left: 6vh;
+  width: 3vh;
+  height: 3vh;
+  background-image: url('./images/flag.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.swiper-slide-active .flag_1 {
+  animation: place-flag-ani 0.3s ease-in;
+}
+
+.flag_2 {
+  position: absolute;
+  top: 40vh;
+  left: 0vh;
+  width: 3vh;
+  height: 3vh;
+  background-image: url('./images/flag.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.swiper-slide-active .flag_2 {
+  animation: place-flag-ani 0.3s ease-in;
+}
+
+.flag_3 {
+  position: absolute;
+  top: 25vh;
+  left: 27.5vh;
+  width: 3vh;
+  height: 3vh;
+  opacity: 0;
+  background-image: url('./images/flag.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.swiper-slide-active .flag_3 {
+  animation: place-flag-ani 0.3s ease-in 0.5s forwards;
+}
+
+@keyframes dash-ani {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes star-group-ani {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes planet-ani {
+  0% {
+    transform: translateY(1vh);
+  }
+  50% {
+    transform: translateY(0vh);
+  }
+  100% {
+    transform: translateY(1vh);
+  }
+}
+
+@keyframes place-flag-ani {
+  0% {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0vh);
+    opacity: 1;
+  }
+}
