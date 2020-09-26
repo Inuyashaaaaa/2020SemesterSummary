@@ -1,0 +1,108 @@
+.count_container {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background-image: url('./images/background.png');
+  background-size: 175%;
+  background-position: center center;
+  overflow: hidden;
+}
+
+
+.star_group_1 {
+  background-image: url('./images/star-1.png');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  transform: scale(1.8);
+  transform-origin: center 30%;
+  position: absolute;
+  animation: star-group-ani 4s infinite ease;
+}
+
+.star_group_2 {
+  background-image: url('./images/star-2.png');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  transform: scale(1.8);
+  transform-origin: center 30%;
+  position: absolute;
+  animation: star-group-ani 5s infinite ease;
+  animation-delay: 1.5s;
+}
+
+.count_space_man {
+  position: absolute;
+  bottom: -15vh;
+  width: 55vh;
+  height: 55vh;
+  background-image: url('./images/spaceman.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.count_bird_left {
+  position: absolute;
+  bottom: 15vh;
+  width: 35vh;
+  height: 35vh;
+  left: -5vh;
+  background-image: url('./images/bird-left.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.count_bird_center {
+  position: absolute;
+  bottom: 12vh;
+  width: 50vh;
+  height: 50vh;
+  left: 2vh;
+  background-image: url('./images/bird-center.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.count_bird_right {
+  position: absolute;
+  bottom: -5vh;
+  left: 40vh;
+  width: 55vh;
+  height: 55vh;
+  background-image: url('./images/bird-right.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.count_text {
+  position: absolute;
+  color: white;
+  text-align: left;
+  font-size: 2.1vh;
+  line-height: 4.7vh;
+  top: 13vh;
+  left: 12vw;
+}
+
+.stress_text {
+  color: #f1b35e;
+  font-size: 3.3vh;
+  padding: 0 1vw;
+}
+
+.yellow_text {
+  color: #f1b35e;
+}
+
+@keyframes star-group-ani {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}

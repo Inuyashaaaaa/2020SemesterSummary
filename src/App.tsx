@@ -3,6 +3,7 @@ import Cover from './pages/cover'
 import Date from './pages/date'
 import Avatar from './pages/avatar'
 import Course from './pages/course'
+import Count from './pages/count'
 import './App.css'
 import 'swiper/swiper.scss'
 import  SwiperCore, { EffectFade } from 'swiper'
@@ -56,14 +57,14 @@ const App: FC<IAppProps> = (props) => {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
+                  <Count />
+              </SwiperSlide>
+              <SwiperSlide>
                 <Avatar />
               </SwiperSlide>
               <SwiperSlide>
                 <Course />
               </SwiperSlide>
-              {/* <SwiperSlide>
-                <div style={{ background: 'green', height: '100vh' }}>12</div>
-              </SwiperSlide> */}
             </Swiper>
           </div>
         )
