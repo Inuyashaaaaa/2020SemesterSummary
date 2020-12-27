@@ -1,0 +1,44 @@
+@prefix: HomeWork;
+
+.@{prefix} {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  background-image: url("./images/background.png");
+  background-size: cover;
+  overflow: hidden;
+  &-planet {
+    position: absolute;
+    top: 33vh;
+    left: 72vw;
+    width: 14vw;
+    height: 14vw;
+    background-image: url("./images/planet.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  &-spaceman {
+    position: absolute;
+    bottom: 4vh;
+    left: 5vw;
+    width: 90vw;
+    height: 90vw;
+    background-image: url("./images/spaceman.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  &-text {
+    position: absolute;
+    color: white;
+    text-align: left;
+    font-size: 2.1vh;
+    line-height: 4.7vh;
+    top: 15vh;
+    left: 15vw;
+  }
+  &-stress_text {
+    color: #f1b35e;
+    font-size: 3.3vh;
+    padding: 0 1vw;
+  }
+}

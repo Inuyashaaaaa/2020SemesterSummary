@@ -4,6 +4,10 @@ import Date from './pages/date'
 import Avatar from './pages/avatar'
 import Course from './pages/course'
 import Count from './pages/count'
+import Classroom from './pages/classroom'
+import Paper from './pages/paper'
+import HomeWork from './pages/homework'
+
 import './App.css'
 import 'swiper/swiper.scss'
 import  SwiperCore, { EffectFade } from 'swiper'
@@ -18,19 +22,19 @@ const music = require('./assets/music/music.mp3')
 interface IAppProps extends PropsFromRedux { }
 
 const App: FC<IAppProps> = (props) => {
-  const { page, joinGame } = props
-  const timer = useRef<NodeJS.Timeout>()
+  const { page } = props
+  // const timer = useRef<NodeJS.Timeout>()
   const audio = useRef<HTMLAudioElement | null>(null)
-  const onJoinGame = (activeIndex: number) => {
-    if (activeIndex === 3) {
-      timer.current = setTimeout(() => {
-        joinGame()
-      }, 3000);
-    } else {
-      if (timer.current)
-        clearTimeout(timer.current)
-    }
-  }
+  // const onJoinGame = (activeIndex: number) => {
+  //   if (activeIndex === 3) {
+  //     timer.current = setTimeout(() => {
+  //       joinGame()
+  //     }, 3000);
+  //   } else {
+  //     if (timer.current)
+  //       clearTimeout(timer.current)
+  //   }
+  // }
   const playMusic = () => {
     if (audio.current) {
       if (audio.current.paused)
@@ -42,36 +46,38 @@ const App: FC<IAppProps> = (props) => {
   const renderComponent = () => {
     switch (page) {
       case 0:
-        return <Cover />
+        return <Paper />
       case 1:
         return (
           <div>
             <Swiper
-              onSlideChange={(swiper) => onJoinGame(swiper.activeIndex)}
+              // onSlideChange={(swiper) => onJoinGame(swiper.activeIndex)}
               effect="fade"
               direction="vertical"
+              style={{ height: '100vh' }}
             >
               <SwiperSlide>
-                <div style={{height: '100vh'}}>
-                  <Date />
-                </div>
+                <Date />    
               </SwiperSlide>
               <SwiperSlide>
-                  <Count />
+                <Count />
               </SwiperSlide>
-              <SwiperSlide>
+              {/* <SwiperSlide>
                 <Avatar />
-              </SwiperSlide>
-              <SwiperSlide>
+              </SwiperSlide> */}
+              {/* <SwiperSlide>
                 <Course />
+              </SwiperSlide> */}
+              <SwiperSlide>
+                <Classroom />
               </SwiperSlide>
             </Swiper>
           </div>
         )
-      case 2:
-        return <div>游戏界面</div>
+      // case 2:
+      //   return <div>游戏界面</div>
       default:
-        break;
+        return null;
     }
   }
   return (
