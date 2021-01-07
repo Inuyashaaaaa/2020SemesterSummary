@@ -16,6 +16,9 @@ import { connect, ConnectedProps } from "react-redux";
 import { actionCreators } from "./store";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import { IData } from "./store/actions";
+import axios from "axios";
+import { isAndroud } from "./utils";
+import { Term } from "./constants";
 SwiperCore.use([EffectFade]);
 
 const music_main = require("./assets/music/music-main.mp3");
@@ -27,7 +30,7 @@ interface IAppProps extends PropsFromRedux {
 }
 
 const App: FC<IAppProps> = (props) => {
-  const { page, data, joinGame, setData } = props;
+  const { page, data, joinGame, setData, xh } = props;
   useEffect(() => {
     setData(data);
   }, [data, setData]);
@@ -46,6 +49,14 @@ const App: FC<IAppProps> = (props) => {
         resetMusic();
         setMusic(2);
         playMusic(2);
+        axios.get(`https://statistics.fzuhelper.w2fzu.com/api/AnnualReport`, {
+          params: {
+            platform: isAndroud() ? "android" : "ios",
+            student_id: xh,
+            term: Term,
+            user_egg: 1,
+          },
+        });
       }, 27000);
     } else {
       if (timer.current) clearTimeout(timer.current);
@@ -171,6 +182,7 @@ const App: FC<IAppProps> = (props) => {
 
 const mapStateToProps = (state: any) => ({
   page: state.get("page"),
+  xh: state.get("xh"),
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

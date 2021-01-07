@@ -60,6 +60,43 @@ export const getData = () => {
   };
 };
 
+// export const unseal = (student_id: number) => {
+//   axiosInstance.get(`/api/AnnualReport`, {
+//     params: {
+//       platform: isAndroud() ? "android" : "ios",
+//       student_id,
+//       term: Term,
+//       user_start: 1,
+//     },
+//   });
+// };
+
+// export const share = (student_id: number) => {
+//   return async () => {
+//     axiosInstance.get(`/api/AnnualReport`, {
+//       params: {
+//         platform: isAndroud() ? "android" : "ios",
+//         student_id,
+//         term: Term,
+//         share: 1,
+//       },
+//     });
+//   };
+// };
+
+// export const egg = (student_id: number) => {
+//   return async () => {
+//     axiosInstance.get(`/api/AnnualReport`, {
+//       params: {
+//         platform: isAndroud() ? "android" : "ios",
+//         student_id,
+//         term: Term,
+//         user_egg: 1,
+//       },
+//     });
+//   };
+// };
+
 /**
  * 发送米数，获得游玩人次和名次百分比
  * @param xh 学号

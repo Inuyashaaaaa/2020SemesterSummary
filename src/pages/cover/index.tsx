@@ -1,10 +1,11 @@
 import React, { useRef, useState, memo } from "react";
 import { connect, ConnectedProps } from "react-redux";
 import { actionCreators } from "../../store";
-import { ClsPrefixEnums } from "../../constants";
-import { setClsPrefixHOC } from "../../utils";
+import { ClsPrefixEnums, Term } from "../../constants";
+import { isAndroud, setClsPrefixHOC } from "../../utils";
 import classNames from "classnames";
 import "./index.less";
+import axios from "axios";
 
 const setClsPrefix = setClsPrefixHOC(ClsPrefixEnums.Cover);
 
@@ -15,7 +16,7 @@ interface ICoverProps extends PropsFromRedux {
 }
 
 const Cover = memo<ICoverProps>((props) => {
-  const { unseal, setMusic, resetMusic, playMusic } = props;
+  const { unseal, setMusic, resetMusic, playMusic, xh } = props;
   const [isAnimation, setIsAnimation] = useState<boolean>(false);
   const timer = useRef<NodeJS.Timeout>();
 
@@ -25,6 +26,14 @@ const Cover = memo<ICoverProps>((props) => {
       // if (window.navigator.vibrate) window.navigator.vibrate(100);
       // android 的抖动
       unseal();
+      axios.get(`https://statistics.fzuhelper.w2fzu.com/api/AnnualReport`, {
+        params: {
+          platform: isAndroud() ? "android" : "ios",
+          student_id: xh,
+          term: Term,
+          user_start: 1,
+        },
+      });
       resetMusic();
       setMusic(1);
       playMusic(1);
@@ -81,13 +90,17 @@ const Cover = memo<ICoverProps>((props) => {
   );
 });
 
+const mapStateToProps = (state: any) => ({
+  xh: state.get('xh')
+})
+
 const mapDispatchToProps = (dispatch: any) => ({
   unseal() {
     dispatch(actionCreators.changePage(1));
   },
 });
 
-const connector = connect(null, mapDispatchToProps);
+const connector = connect(mapStateToProps, mapDispatchToProps);
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
 

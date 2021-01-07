@@ -1,6 +1,9 @@
+import axios from "axios";
 import React, { memo, useRef } from "react";
 import { connect, ConnectedProps } from "react-redux";
+import { Term } from "../../constants";
 import { ClsPrefixEnums } from "../../constants/cls-prefix";
+import { isAndroud } from "../../utils";
 import { setClsPrefixHOC } from "../../utils/setClsPrefixHOC";
 import "./index.less";
 
@@ -9,12 +12,19 @@ const setClsPrefix = setClsPrefixHOC(ClsPrefixEnums.Grivitation);
 interface IGrivitationProps extends PropsFromRedux {}
 
 const Grivitation = memo<IGrivitationProps>((props) => {
-  const { ylz, yizbfb, xxs } = props;
+  const { ylz, yizbfb, xxs, xh } = props;
   const dom = useRef<HTMLDivElement | null>(null);
   const handleShareClick = () => {
-    alert('ok');
     // @ts-ignore
     jsInterface.save();
+    axios.get(`https://statistics.fzuhelper.w2fzu.com/api/AnnualReport`, {
+      params: {
+        platform: isAndroud() ? "android" : "ios",
+        student_id: xh,
+        term: Term,
+        share: 1,
+      },
+    });
   };
 
   return (
@@ -94,10 +104,8 @@ const Grivitation = memo<IGrivitationProps>((props) => {
         <br />
         <span>小星系继续养成中...</span>
       </div>
-      <div className={setClsPrefix("download")} onClick={handleShareClick}></div>
-      <div className={setClsPrefix("download_text")}>
-        保存图片
-      </div>
+      <div className={setClsPrefix("share")} onClick={handleShareClick}></div>
+      <div className={setClsPrefix("share_text")}>分享报告</div>
     </div>
   );
 });
@@ -106,6 +114,7 @@ const mapStateToProps = (state: any) => ({
   ylz: state.get("ylz"),
   yizbfb: state.get("yizbfb"),
   xxs: state.get("xxs"),
+  xh: state.get("xh"),
 });
 
 const mapDispatchToProps = (dispatch: any) => ({});

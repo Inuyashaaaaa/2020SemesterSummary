@@ -6,7 +6,7 @@ import "./index.css";
 interface ICountProps extends PropsFromRedux {}
 
 const Count: FC<ICountProps> = (props) => {
-  const { cjcx, zwsj } = props;
+  const { fdzs, zwsj } = props;
 
   return (
     <div className="count_container">
@@ -20,12 +20,12 @@ const Count: FC<ICountProps> = (props) => {
         <span>这学期</span>
         <br />
         <span>
-          你一共使用了<span className="stress_text">{cjcx}</span>次福大助手
+          你一共使用了<span className="stress_text">{fdzs}</span>次福大助手
         </span>
         <br />
         <span>
           <span className="yellow_text">
-            {moment(new Date(zwsj)).format("M月DD号 hh:mm")}
+            {moment(new Date(zwsj * 1000)).format("M月DD号 hh:mm")}
           </span>{" "}
           你依然在福大助手
         </span>
@@ -39,7 +39,7 @@ const Count: FC<ICountProps> = (props) => {
 const mapDispatchToProps = (dispatch: any) => ({});
 
 const mapStateToProps = (state: any) => ({
-  cjcx: state.get("cjcx"),
+  fdzs: state.get("fdzs"),
   zwsj: state.get("zwsj"),
 });
 
