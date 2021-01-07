@@ -1,25 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import * as serviceWorker from './serviceWorker';
-import { store, actionCreators } from './store'
-import { Provider } from 'react-redux'
-import Loadable from 'react-loadable'
-import 'normalize.css'
-import Loading from './pages/loading'
-import './assets/font/title.css'
-import './assets/font/content.css'
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import * as serviceWorker from "./serviceWorker";
+import { store, actionCreators } from "./store";
+import { Provider } from "react-redux";
+import Loadable from "react-loadable";
+import "normalize.css";
+import Loading from "./pages/loading";
 
 const LoadableApp = Loadable.Map({
   loader: {
-    App: () => import('./App'),
-    Data: actionCreators.getData()
+    App: () => import("./App"),
+    Data: actionCreators.getData(),
   },
+  timeout: 2000,
   render(loaded) {
     const App = loaded.App.default;
-    return <App />;
+    const data = loaded.Data;
+    return <App data={data.data.message} />;
   },
-  loading: Loading
+  loading: Loading,
 });
 
 ReactDOM.render(
@@ -28,7 +28,7 @@ ReactDOM.render(
       <LoadableApp />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

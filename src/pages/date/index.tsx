@@ -3,13 +3,14 @@
  * @description 针对新生的, 入学多少天
  */
 
-import React, { FC } from 'react'
-import './index.css'
-import { connect, ConnectedProps } from 'react-redux'
+import React, { FC } from "react";
+import "./index.css";
+import { connect, ConnectedProps } from "react-redux";
 
 interface IDateProps extends PropsFromRedux {}
 
 const Date: FC<IDateProps> = (props) => {
+  const { ts } = props;
   return (
     <div className="date_container">
       <div className="star_group_1"></div>
@@ -19,21 +20,29 @@ const Date: FC<IDateProps> = (props) => {
       <div className="dirigible"></div>
       <div className="smoke"></div>
       <div className="date_text">
-        <span>这是你来到<span className="stress_text">福大</span>的</span>
+        <span>
+          这是你来到<span className="stress_text">福大</span>的
+        </span>
         <br />
-        <span>第<span className="stress_text">248</span>天</span>
+        <span>
+          第<span className="stress_text">{ts}</span>天
+        </span>
         <br />
         <br />
         <span>很高兴遇到你!</span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-const mapDispatchToProps = (dispatch: any) => ({})
+const mapDispatchToProps = (dispatch: any) => ({});
 
-const connector = connect(null, mapDispatchToProps)
+const mapStateToProps = (state: any) => ({
+  ts: state.get("ts"),
+});
 
-type PropsFromRedux = ConnectedProps<typeof connector>
+const connector = connect(mapStateToProps, mapDispatchToProps);
 
-export default connector(Date)
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+export default connector(Date);

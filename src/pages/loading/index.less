@@ -1,0 +1,54 @@
+@prefix: Loading;
+
+.@{prefix} {
+  height: 100vh;
+  width: 100%;
+  background-image: url("./images/background.png");
+  background-size: cover;
+  overflow: hidden;
+  &-planet {
+    position: absolute;
+    width: 30vw;
+    height: 30vh;
+    top: 36vh;
+    left: 35vw;
+    background-image: url("./images/planet.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: bounce 4s infinite;
+  }
+  &-loading {
+    position: absolute;
+    width: 30vw;
+    height: 30vh;
+    bottom: 22vh;
+    left: 35vw;
+    background-image: url("./images/loading.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: bounce 4s infinite;
+  }
+  &-dot {
+    position: absolute;
+    width: 30vw;
+    height: 30vh;
+    bottom: 22vh;
+    left: 35vw;
+    background-image: url("./images/dot.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: bounce 4s infinite;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

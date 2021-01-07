@@ -1,10 +1,13 @@
-import React, { FC } from 'react'
-import { ConnectedProps, connect } from 'react-redux'
-import './index.css'
+import moment from "moment";
+import React, { FC } from "react";
+import { ConnectedProps, connect } from "react-redux";
+import "./index.css";
 
-interface ICountProps extends PropsFromRedux { }
+interface ICountProps extends PropsFromRedux {}
 
 const Count: FC<ICountProps> = (props) => {
+  const { cjcx, zwsj } = props;
+
   return (
     <div className="count_container">
       <div className="star_group_1"></div>
@@ -16,20 +19,32 @@ const Count: FC<ICountProps> = (props) => {
       <div className="count_text">
         <span>这学期</span>
         <br />
-        <span>你一共使用了<span className="stress_text">293</span>次福大助手</span>
+        <span>
+          你一共使用了<span className="stress_text">{cjcx}</span>次福大助手
+        </span>
         <br />
-        <span><span className="yellow_text">6月20号 01:58</span> 你依然在福大助手</span>
+        <span>
+          <span className="yellow_text">
+            {moment(new Date(zwsj)).format("M月DD号 hh:mm")}
+          </span>{" "}
+          你依然在福大助手
+        </span>
         <br />
         <span>是忘了第二天上什么课吗?</span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-const mapDispatchToProps = (dispatch: any) => ({})
+const mapDispatchToProps = (dispatch: any) => ({});
 
-const connector = connect(null, mapDispatchToProps)
+const mapStateToProps = (state: any) => ({
+  cjcx: state.get("cjcx"),
+  zwsj: state.get("zwsj"),
+});
 
-type PropsFromRedux = ConnectedProps<typeof connector>
+const connector = connect(mapStateToProps, mapDispatchToProps);
 
-export default connector(Count)
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+export default connector(Count);

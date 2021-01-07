@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'ssss';
+  src: url("./title.ttf");
+}
+
+.home h1, .demo > .test {
+  font-family: 'ssss';
+}

@@ -6,8 +6,6 @@
 import React, { FC } from 'react'
 import './index.css'
 import { connect, ConnectedProps } from 'react-redux'
-import WordCloud from '../../components/wordCloud'
-import maskImage from './images/mask.png'
 
 interface IGradeProps extends PropsFromRedux { }
 
@@ -20,7 +18,6 @@ const Grade: FC<IGradeProps> = () => {
       <div className="grade_planet"></div>
       <div className="grade_ani_group">
         <div className="grade_astronaut"></div>
-        <WordCloud maskImage={maskImage} />
       </div>
     </div>
   )

@@ -8,10 +8,14 @@ import "./index.less";
 
 const setClsPrefix = setClsPrefixHOC(ClsPrefixEnums.Cover);
 
-interface ICoverProps extends PropsFromRedux {}
+interface ICoverProps extends PropsFromRedux {
+  setMusic: any,
+  resetMusic: any,
+  playMusic: any,
+}
 
 const Cover = memo<ICoverProps>((props) => {
-  const { unseal } = props;
+  const { unseal, setMusic, resetMusic, playMusic } = props;
   const [isAnimation, setIsAnimation] = useState<boolean>(false);
   const timer = useRef<NodeJS.Timeout>();
 
@@ -21,6 +25,9 @@ const Cover = memo<ICoverProps>((props) => {
       // if (window.navigator.vibrate) window.navigator.vibrate(100);
       // android 的抖动
       unseal();
+      resetMusic();
+      setMusic(1);
+      playMusic(1);
     }, 500);
   };
   const onSealTouchEnd = () => {
@@ -66,7 +73,7 @@ const Cover = memo<ICoverProps>((props) => {
         来自未知宇宙的来信 ...
       </div>
       <div className={setClsPrefix("statement_text")}>
-        点击即代表同意福大助手使用你的数据生成学期报告
+        长按即代表同意福大助手使用你的数据生成学期报告
       </div>
       <div className={leftArrowGroupClassName}>《《《</div>
       <div className={rightArrowGroupClassName}>》》》</div>

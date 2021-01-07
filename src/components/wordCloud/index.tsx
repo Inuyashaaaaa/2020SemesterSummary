@@ -11,16 +11,18 @@ import "echarts-wordcloud";
 
 export interface wordCloudProps {
   maskImage: string;
+  data: { name: string; value: number }[];
 }
 
 const WordCloud: FC<wordCloudProps> = (props) => {
-  const { maskImage } = props;
-
+  const { maskImage, data } = props;
   const wordCloudRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
+    
     if (wordCloudRef.current) {
       const chart = echarts.init(wordCloudRef.current);
-      const mul = document.body.clientWidth / 375
+      const mul = document.body.clientWidth / 375;
       const option = {
         series: [
           {
@@ -30,12 +32,12 @@ const WordCloud: FC<wordCloudProps> = (props) => {
             drawOutOfBound: false,
             left: "center",
             top: "center",
-            width: '90%',
-            height: '90%',
-            sizeRange: [10 * mul, 20 * mul],
+            width: "90%",
+            height: "90%",
+            sizeRange: [20 * mul, 30 * mul],
             textStyle: {
               normal: {
-                fontFamily: "Semester Summary Content",
+                // fontFamily: "Semester Summary Content",
                 color: function () {
                   // return 'rgba(' + [
                   //   Math.round(Math.random() * 255),
@@ -52,102 +54,15 @@ const WordCloud: FC<wordCloudProps> = (props) => {
               },
             },
             data: [
-              {
-                name: "操作系统",
-                value: Math.random(),
-              },
-              {
-                name: "C#程序设计",
-                value: Math.random(),
-              },
-              {
-                name: "移动应用开发",
-                value: Math.random(),
-              },
-              {
-                name: "计算机专业英语",
-                value: Math.random(),
-              },
-              {
-                name: "人工智能导论",
-                value: Math.random(),
-              },
-              {
-                name: "XML程序设计",
-                value: Math.random(),
-              },
-              {
-                name: "面向对象分析与设计",
-                value: Math.random(),
-              },
-              {
-                name: "数值计算",
-                value: Math.random(),
-              },
-              {
-                name: "操作系统",
-                value: Math.random(),
-              },
-              {
-                name: "C#程序设计",
-                value: Math.random(),
-              },
-              {
-                name: "移动应用开发",
-                value: Math.random(),
-              },
-              {
-                name: "计算机专业英语",
-                value: Math.random(),
-              },
-              {
-                name: "人工智能导论",
-                value: Math.random(),
-              },
-              {
-                name: "XML程序设计",
-                value: Math.random(),
-              },
-              {
-                name: "面向对象分析与设计",
-                value: Math.random(),
-              },
-              {
-                name: "数值计算",
-                value: Math.random(),
-              },
-              {
-                name: "操作系统",
-                value: Math.random(),
-              },
-              {
-                name: "C#程序设计",
-                value: Math.random(),
-              },
-              {
-                name: "移动应用开发",
-                value: Math.random(),
-              },
-              {
-                name: "计算机专业英语",
-                value: Math.random(),
-              },
-              {
-                name: "人工智能导论",
-                value: Math.random(),
-              },
-              {
-                name: "XML程序设计",
-                value: Math.random(),
-              },
-              {
-                name: "面向对象分析与设计",
-                value: Math.random(),
-              },
-              {
-                name: "数值计算",
-                value: Math.random(),
-              },
+              ...data,
+              ...data,
+              ...data,
+              ...data,
+              ...data,
+              ...data,
+              ...data,
+              ...data,
+              ...data,
             ],
           },
         ],
