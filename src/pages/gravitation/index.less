@@ -2,6 +2,92 @@
 
 .swiper-slide-active {
   .@{prefix} {
+    &-blue_container {
+      animation: rotate 10s 3 forwards linear, rotate2 1s infinite linear 30s;
+    }
+    &-blue {
+      animation: rotateRev 10s 3 forwards linear,
+        rotateRev2 1s infinite linear 30s;
+    }
+    &-blue1_container {
+      animation: rotate 16s 2 forwards linear, rotate2 0.8s infinite linear 32s;
+    }
+    &-blue1 {
+      animation: rotateRev 16s 2 forwards linear,
+        rotateRev2 0.8s infinite linear 32s;
+    }
+    &-earth_container {
+      animation: rotate 20s 2 linear forwards, rotate2 1.6s infinite linear 40s;
+    }
+    &-earth {
+      animation: rotateRev 20s 2 linear forwards,
+        rotateRev2 1.6s infinite linear 40s;
+    }
+    &-green_container {
+      animation: rotate 4s 8 linear forwards, rotate2 2s infinite linear 32s;
+    }
+    &-green {
+      animation: rotateRev 4s 8 linear forwards,
+        rotateRev2 2s infinite linear 32s;
+    }
+    &-green1_container {
+      animation: rotate 8s 4 linear forwards, rotate2 1s infinite linear 32s;
+    }
+    &-green1 {
+      animation: rotateRev 8s 4 linear forwards,
+        rotateRev2 1s infinite linear 32s;
+    }
+    &-moon_container {
+      animation: rotate 30s linear infinite;
+    }
+    &-moon {
+      animation: rotateRev 30s linear infinite;
+    }
+    &-potato_container {
+      animation: rotate 12s linear infinite;
+    }
+    &-potato {
+      animation: rotateRev 12s linear infinite;
+    }
+    &-potato1_container {
+      animation: rotate 8s linear infinite;
+    }
+    &-potato1 {
+      animation: rotateRev 8s linear infinite;
+    }
+    &-red_container {
+      animation: rotate 18s linear infinite;
+    }
+    &-red {
+      animation: rotateRev 18s linear infinite;
+    }
+    &-satum_container {
+      animation: rotate 20s linear infinite;
+    }
+    &-satum {
+      animation: rotateRev 20s linear infinite;
+    }
+    &-text {
+      animation: opacity-ani 3s forwards;
+      animation-delay: 27s;
+    }
+    &-black_hole {
+      animation: blackhold 3s forwards ease-out;
+      animation-delay: 27s;
+    }
+    &-share {
+      animation: opacity-ani 3s forwards;
+      animation-delay: 27s;
+    }
+    &-share_text {
+      animation: opacity-ani 3s forwards;
+      animation-delay: 27s;
+    }
+  }
+}
+
+.swiper-slide {
+  .@{prefix} {
     height: 100vh;
     width: 100%;
     background-image: url("./images/background.png");
@@ -25,7 +111,6 @@
       width: 150vw;
       height: 150vw;
       transform-origin: center center;
-      animation: rotate 10s 3 forwards linear, rotate2 1s infinite linear 30s;
     }
     &-blue {
       position: absolute;
@@ -37,8 +122,6 @@
       background-size: contain;
       background-repeat: no-repeat;
       transform-origin: center center;
-      animation: rotateRev 10s 3 forwards linear,
-        rotateRev2 1s infinite linear 30s;
     }
     &-blue1_container {
       position: absolute;
@@ -47,7 +130,6 @@
       width: 150vw;
       height: 150vw;
       transform-origin: center center;
-      animation: rotate 16s 2 forwards linear, rotate2 0.8s infinite linear 32s;
     }
     &-blue1 {
       position: absolute;
@@ -59,8 +141,6 @@
       background-size: contain;
       background-repeat: no-repeat;
       transform-origin: center center;
-      animation: rotateRev 16s 2 forwards linear,
-        rotateRev2 0.8s infinite linear 32s;
     }
     &-earth_container {
       position: absolute;
@@ -69,7 +149,6 @@
       width: 150vw;
       height: 150vw;
       transform-origin: center center;
-      animation: rotate 20s 2 linear forwards, rotate2 1.6s infinite linear 40s;
     }
     &-earth {
       position: absolute;
@@ -80,8 +159,6 @@
       background-image: url("./images/earth.png");
       background-size: contain;
       background-repeat: no-repeat;
-      animation: rotateRev 20s 2 linear forwards,
-        rotateRev2 1.6s infinite linear 40s;
       transform-origin: center center;
     }
     &-green_container {
@@ -91,7 +168,6 @@
       width: 150vw;
       height: 150vw;
       transform-origin: center center;
-      animation: rotate 4s 8 linear forwards, rotate2 2s infinite linear 32s;
     }
     &-green {
       position: absolute;
@@ -103,8 +179,6 @@
       background-image: url("./images/green.png");
       background-size: contain;
       background-repeat: no-repeat;
-      animation: rotateRev 4s 8 linear forwards,
-        rotateRev2 2s infinite linear 32s;
     }
     &-green1_container {
       position: absolute;
@@ -113,7 +187,6 @@
       width: 150vw;
       height: 150vw;
       transform-origin: center center;
-      animation: rotate 8s 4 linear forwards, rotate2 1s infinite linear 32s;
     }
     &-green1 {
       position: absolute;
@@ -125,8 +198,6 @@
       background-image: url("./images/green.png");
       background-size: contain;
       background-repeat: no-repeat;
-      animation: rotateRev 8s 4 linear forwards,
-        rotateRev2 1s infinite linear 32s;
     }
     &-moon_container {
       position: absolute;
@@ -135,7 +206,6 @@
       width: 150vw;
       height: 150vw;
       transform-origin: center center;
-      animation: rotate 30s linear infinite;
     }
     &-moon {
       position: absolute;
@@ -147,7 +217,6 @@
       background-size: contain;
       background-repeat: no-repeat;
       transform-origin: center center;
-      animation: rotateRev 30s linear infinite;
     }
     &-potato_container {
       position: absolute;
@@ -156,7 +225,6 @@
       width: 150vw;
       height: 150vw;
       transform-origin: center center;
-      animation: rotate 12s linear infinite;
     }
     &-potato {
       position: absolute;
@@ -168,7 +236,6 @@
       background-size: contain;
       background-repeat: no-repeat;
       transform-origin: center center;
-      animation: rotateRev 12s linear infinite;
     }
     &-potato1_container {
       position: absolute;
@@ -177,7 +244,6 @@
       width: 150vw;
       height: 150vw;
       transform-origin: center center;
-      animation: rotate 8s linear infinite;
     }
     &-potato1 {
       position: absolute;
@@ -189,7 +255,6 @@
       background-size: contain;
       background-repeat: no-repeat;
       transform-origin: center center;
-      animation: rotateRev 8s linear infinite;
     }
     &-red_container {
       position: absolute;
@@ -198,7 +263,6 @@
       width: 150vw;
       height: 150vw;
       transform-origin: center center;
-      animation: rotate 18s linear infinite;
     }
     &-red {
       position: absolute;
@@ -210,7 +274,6 @@
       background-size: contain;
       background-repeat: no-repeat;
       transform-origin: center center;
-      animation: rotateRev 18s linear infinite;
     }
     &-satum_container {
       position: absolute;
@@ -219,7 +282,6 @@
       width: 150vw;
       height: 150vw;
       transform-origin: center center;
-      animation: rotate 20s linear infinite;
     }
     &-satum {
       position: absolute;
@@ -231,7 +293,6 @@
       background-size: contain;
       background-repeat: no-repeat;
       transform-origin: center center;
-      animation: rotateRev 20s linear infinite;
     }
     &-text {
       position: absolute;
@@ -241,8 +302,6 @@
       line-height: 4.7vh;
       top: 15vh;
       right: 10vw;
-      animation: opacity-ani 3s forwards;
-      animation-delay: 27s;
     }
     &-stress_text {
       color: #f1b35e;
@@ -259,8 +318,6 @@
       background-repeat: no-repeat;
       opacity: 0;
       background-image: url("./images/blackhole.png");
-      animation: blackhold 3s forwards ease-out;
-      animation-delay: 27s;
     }
     &-share {
       position: absolute;
@@ -268,8 +325,6 @@
       height: 8vw;
       bottom: 8vw;
       right: 5vw;
-      animation: opacity-ani 3s forwards;
-      animation-delay: 27s;
       background-image: url("./images/share.png");
       background-size: cover;
       background-repeat: no-repeat;

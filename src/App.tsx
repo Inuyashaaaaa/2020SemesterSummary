@@ -121,6 +121,7 @@ const App: FC<IAppProps> = (props) => {
             effect="fade"
             direction="vertical"
             style={{ height: "100vh" }}
+            longSwipesRatio={0.1}
             fadeEffect={{
               crossFade: true,
             }}

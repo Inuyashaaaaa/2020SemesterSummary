@@ -61,8 +61,8 @@ const Classroom: FC<ICountProps> = (props) => {
 const mapDispatchToProps = (dispatch: any) => ({});
 
 const mapStateToProps = (state: any) => ({
-  kjscx: state.get("kc"),
-  kjssjd: state.get("ksbfb"),
+  kjscx: state.get("kjscx"),
+  kjssjd: state.get("kjssjd"),
 });
 
 const connector = connect(mapStateToProps, mapDispatchToProps);

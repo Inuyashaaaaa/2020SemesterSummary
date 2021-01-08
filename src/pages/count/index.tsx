@@ -25,7 +25,7 @@ const Count: FC<ICountProps> = (props) => {
         <br />
         <span>
           <span className="yellow_text">
-            {moment(new Date(zwsj * 1000)).format("M月DD号 hh:mm")}
+            {moment(new Date(zwsj * 1000)).format("MM月DD号 HH:mm")}
           </span>{" "}
           你依然在福大助手
         </span>
